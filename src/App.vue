@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { DragSelect, DragSelectOption } from "@coleqiu/vue-drag-select";
 
-const selection = ref(["item1"]);
+const selection = ref([]);
 const options = ["item1", "item2", "item3"];
 </script>
 
