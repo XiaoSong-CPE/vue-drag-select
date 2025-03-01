@@ -1,30 +1,29 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from "vue";
+import { DragSelect, DragSelectOption } from "@coleqiu/vue-drag-select";
+
+const selection = ref(["item1"]);
+const options = ["item1", "item2", "item3"];
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <drag-select v-model="selection">
+    <drag-select-option v-for="item in options" :value="item" :key="item">{{
+      item
+    }}</drag-select-option>
+  </drag-select>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<style>
+.drag-select-option {
+  width: 100px;
+  height: 100px;
+  color: #ffffff;
+  background: #e37e26;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+.drag-select-option--selected {
+  color: #000000;
+  background: #5fdddc;
 }
 </style>
